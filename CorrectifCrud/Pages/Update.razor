@@ -1,0 +1,12 @@
+﻿@page "/update/{id:int}"
+<h3>Update</h3>
+
+<EditForm Model="MyForm" OnValidSubmit="ValidForm">
+    <p>Titre : <InputText @bind-Value="MyForm.Title" /></p>
+    <p>Genre : <InputText @bind-Value="MyForm.Genre" /></p>
+    <p><button class="btn btn-outline-success">Valider</button></p>
+</EditForm>
+
+@code {
+
+}

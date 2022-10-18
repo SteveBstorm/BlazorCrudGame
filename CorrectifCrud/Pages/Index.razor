@@ -1,0 +1,28 @@
+﻿@page "/"
+@using CorrectifCrud.Models
+
+<p>
+    <NavLink href="create">Ajouter un jeu</NavLink>
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>Titre</th>
+        <th>Genre</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach(Game g in MyList){
+        <tr>
+            <td>@g.Title</td>
+            <td>@g.Genre</td>
+            <td><button class="btn" @onclick="() => GoToDetail(g.Id)">Détails</button></td>
+            <td><button class="btn" @onclick="() => GoToUpdate(g.Id)">Update</button></td>
+            <td><button class="btn" @onclick="() => Delete(g.Id)">Delete</button></td>
+        </tr>
+    }
+</table>
+
+<hr />
+<Detail id="selectedId"></Detail>

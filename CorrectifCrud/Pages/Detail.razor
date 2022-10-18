@@ -1,0 +1,23 @@
+﻿@using CorrectifCrud.Models
+@using CorrectifCrud.Services
+@if(!(CurrentGame is null))
+{
+    <h3>Detail</h3>
+    <p>Titre : @CurrentGame.Title</p>
+    <p>Genre : @CurrentGame.Genre</p>
+}
+
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    [Inject]
+    private GameService gs { get; set; }
+
+    public Game CurrentGame{ get; set; }
+
+    protected override void OnParametersSet()
+    {
+        CurrentGame = gs.GetById(id);
+    }
+}
